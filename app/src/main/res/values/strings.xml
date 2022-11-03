@@ -1,0 +1,64 @@
+<resources>
+    <string name="app_name">Lab 1 - Android Calculator</string>
+    <string name="oneText">1</string>
+    <string name="twoText">2</string>
+    <string name="threeText">3</string>
+    <string name="fourText">4</string>
+    <string name="fiveText">5</string>
+    <string name="sixText">6</string>
+    <string name="sevenText">7</string>
+    <string name="eightText">8</string>
+    <string name="nineText">9</string>
+    <string name="zeroText">0</string>
+
+    <string name="clearText">C</string>
+    <string name="parenthesesText">()</string>
+    <string name="divideText">÷</string>
+    <string name="multiplyText">×</string>
+    <string name="additionText">+</string>
+    <string name="subtractText">-</string>
+    <string name="decimalText">.</string>
+    <string name="equalsText">=</string>
+    <string name="percentText">%</string>
+    <string name="signText">+/-</string>
+
+    <string name="modeRadText">Rad</string>
+    <string name="modeDecText">Dec</string>
+    <string name="modeSwapText">sync_alt</string>
+
+    <string name="SinText">sin</string>
+    <string name="CosText">cos</string>
+    <string name="TanText">tan</string>
+    <string name="ArcSinText">sin<sup><small>-1</small></sup></string>
+    <string name="ArcCosText">cos<sup><small>-1</small></sup></string>
+    <string name="ArcTanText">tan<sup><small>-1</small></sup></string>
+    <string name="HyperSinText">sinh</string>
+    <string name="HyperCosText">cosh</string>
+    <string name="HyperTanText">tanh</string>
+    <string name="HyperArcSinText">sinh<sup><small>-1</small></sup></string>
+    <string name="HyperArcCosText">cosh<sup><small>-1</small></sup></string>
+    <string name="HyperArcTanText">tanh<sup><small>-1</small></sup></string>
+
+    <string name="naturalLogText">ln</string>
+    <string name="LogText">log</string>
+    <string name="squareRootText">√</string>
+    <string name="cubeRootText"><sup><small>3</small></sup>√</string>
+    <string name="fractionText">1/x</string>
+    <string name="absoluteValueText">|x|</string>
+    <string name="piText">π</string>
+    <string name="eText">e</string>
+    <string name="ePowerXText">e<sup><small>x</small></sup></string>
+    <string name="xSquaredText">x<sup><small>2</small></sup></string>
+    <string name="xCubedText">x<sup><small>3</small></sup></string>
+    <string name="xPowerYText">x<sup><small>y</small></sup></string>
+    <string name="twoPowerXText">2<sup><small>x</small></sup></string>
+    <string name="xFactorialText">x!</string>
+
+
+    <string name="backspaceButtonText">Backspace</string>
+    <string name="modeSwapButtonText">Mode Swap</string>
+
+    <string name="currentNumberText">0</string>
+    <string name="currentCalculationText">0</string>
+    <string name="previousCalculationText">0</string>
+</resources>
