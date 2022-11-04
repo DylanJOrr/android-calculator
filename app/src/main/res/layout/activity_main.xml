@@ -12,68 +12,88 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="8dp"
+        app:layout_constraintBottom_toTopOf="@id/buttons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/buttons"
-        android:layout_margin="8dp"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            style="@style/calcInfo"
             android:id="@+id/previous_calculation"
-            android:layout_width="wrap_content"
+            style="@style/calcInfo"
             android:text="@string/previousCalculationText"
 
+            app:autoSizeMaxTextSize="32sp"
+            app:autoSizeMinTextSize="16sp"
+            app:autoSizeStepGranularity="1sp"
+            app:autoSizeTextType="uniform"
+
             app:layout_constraintBottom_toBottomOf="@id/current_number"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
-
-        <TextView
-            style="@style/calcInfo"
-            android:id="@+id/current_number"
-            android:text="@string/currentNumberText"
-            android:textSize="64sp"
-            android:paddingVertical="8dp"
-
-            app:layout_constraintBaseline_toTopOf="@id/current_calculation"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/current_number"
             style="@style/calcInfo"
+            android:paddingVertical="8dp"
+            android:layout_height="72dp"
+            android:text="@string/currentNumberText"
+
+            app:autoSizeMaxTextSize="64sp"
+            app:autoSizeMinTextSize="32sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
+
+            app:layout_constraintBottom_toTopOf="@id/current_calculation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/previous_calculation"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
             android:id="@+id/current_calculation"
+            style="@style/calcInfo"
             android:text="@string/currentCalculationText"
 
-            app:layout_constraintTop_toBottomOf="@+id/current_number"
+            app:autoSizeMaxTextSize="32sp"
+            app:autoSizeMinTextSize="16sp"
+            app:autoSizeStepGranularity="1sp"
+            app:autoSizeTextType="uniform"
+
             app:layout_constraintBaseline_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            />
+            app:layout_constraintStart_toStartOf="@+id/current_number"
+            app:layout_constraintTop_toBottomOf="@+id/current_number" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/buttons"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@drawable/buttons_top_border"
 
         app:layout_constraintTop_toBottomOf="@id/numbers"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="8dp"
-        android:layout_marginTop="16dp"
+        android:paddingTop="16dp"
         >
 
         <ImageButton
-            android:id="@+id/button_backspace"
             style="@style/land_buttonNorm"
+            android:id="@+id/button_backspace"
             android:layout_width="72dp"
-            android:layout_marginVertical="16dp"
-            android:background="@drawable/backspace_button_styling"
             android:contentDescription="@string/backspaceButtonText"
+            android:background="@drawable/imagebutton_roundedcorners"
             android:src="@drawable/ic_baseline_backspace_24"
+            android:onClick="btn_backspace"
 
             app:layout_constraintBottom_toTopOf="@id/button_divide"
             app:layout_constraintEnd_toEndOf="@id/button_divide"
@@ -83,9 +103,10 @@
         <Button
             android:id="@+id/button_clear"
             style="@style/port_buttonFunc"
+            android:onClick="btn_clear"
+
+
             android:text="@string/clearText"
-
-
             app:layout_constraintBottom_toTopOf="@id/button_7"
             app:layout_constraintEnd_toStartOf="@id/button_bracket"
             app:layout_constraintStart_toStartOf="parent"
@@ -94,8 +115,9 @@
         <Button
             android:id="@+id/button_bracket"
             style="@style/port_buttonNorm"
-            android:text="@string/parenthesesText"
+            android:onClick="btn_brackets"
 
+            android:text="@string/parenthesesText"
             app:layout_constraintBottom_toTopOf="@id/button_8"
             app:layout_constraintEnd_toStartOf="@id/button_percent"
             app:layout_constraintStart_toEndOf="@id/button_clear"
@@ -104,197 +126,205 @@
         <Button
             android:id="@+id/button_percent"
             style="@style/port_buttonNorm"
-            android:text="@string/percentText"
+            android:onClick="btn_percent"
 
+            android:text="@string/percentText"
             app:layout_constraintBottom_toTopOf="@id/button_9"
             app:layout_constraintEnd_toStartOf="@id/button_divide"
             app:layout_constraintStart_toEndOf="@id/button_bracket"
             app:layout_constraintTop_toBottomOf="@id/button_backspace" />
+
         <Button
             android:id="@+id/button_divide"
             style="@style/port_buttonOp"
+            android:onClick="btn_divide"
+
+
             android:text="@string/divideText"
-
-
-            app:layout_constraintTop_toBottomOf="@id/button_backspace"
+            app:layout_constraintBottom_toTopOf="@id/button_multiply"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/button_percent"
-            app:layout_constraintBottom_toTopOf="@id/button_multiply"
-            />
+            app:layout_constraintTop_toBottomOf="@id/button_backspace" />
+
         <Button
             android:id="@+id/button_7"
             style="@style/port_buttonNorm"
-            android:text="@string/sevenText"
+            android:onClick="btn_7"
 
+            android:text="@string/sevenText"
+            app:layout_constraintBottom_toTopOf="@id/button_4"
             app:layout_constraintEnd_toStartOf="@id/button_8"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_clear"
-            app:layout_constraintBottom_toTopOf="@id/button_4"
 
-            />
+            app:layout_constraintTop_toBottomOf="@id/button_clear" />
+
         <Button
             android:id="@+id/button_8"
             style="@style/port_buttonNorm"
+            android:onClick="btn_8"
+
             android:text="@string/eightText"
 
-            app:layout_constraintTop_toBottomOf="@id/button_bracket"
-
+            app:layout_constraintBottom_toTopOf="@id/button_5"
             app:layout_constraintEnd_toStartOf="@id/button_9"
             app:layout_constraintStart_toEndOf="@id/button_7"
-            app:layout_constraintBottom_toTopOf="@id/button_5"
-            />
+            app:layout_constraintTop_toBottomOf="@id/button_bracket" />
+
         <Button
             android:id="@+id/button_9"
             style="@style/port_buttonNorm"
+            android:onClick="btn_9"
+
+
             android:text="@string/nineText"
-
-
+            app:layout_constraintBottom_toTopOf="@id/button_6"
             app:layout_constraintEnd_toStartOf="@id/button_multiply"
             app:layout_constraintStart_toEndOf="@id/button_8"
-            app:layout_constraintTop_toBottomOf="@id/button_percent"
-            app:layout_constraintBottom_toTopOf="@id/button_6"
-            />
+            app:layout_constraintTop_toBottomOf="@id/button_percent" />
+
         <Button
             android:id="@+id/button_multiply"
             style="@style/port_buttonOp"
-            android:text="@string/multiplyText"
+            android:onClick="btn_multiply"
 
-            app:layout_constraintTop_toBottomOf="@id/button_divide"
+            android:text="@string/multiplyText"
             app:layout_constraintBottom_toTopOf="@id/button_minus"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/button_9"
-            />
+            app:layout_constraintTop_toBottomOf="@id/button_divide" />
+
         <Button
             android:id="@+id/button_4"
             style="@style/port_buttonNorm"
-            android:text="@string/fourText"
+            android:onClick="btn_4"
 
-            app:layout_constraintTop_toBottomOf="@id/button_7"
+            android:text="@string/fourText"
             app:layout_constraintBottom_toTopOf="@id/button_1"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/button_5"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_7" />
 
         <Button
             android:id="@+id/button_5"
             style="@style/port_buttonNorm"
-            android:text="@string/fiveText"
+            android:onClick="btn_5"
 
-            app:layout_constraintTop_toBottomOf="@id/button_8"
+            android:text="@string/fiveText"
             app:layout_constraintBottom_toTopOf="@id/button_2"
             app:layout_constraintEnd_toStartOf="@id/button_6"
             app:layout_constraintStart_toEndOf="@id/button_4"
-            />
+            app:layout_constraintTop_toBottomOf="@id/button_8" />
 
         <Button
             android:id="@+id/button_6"
             style="@style/port_buttonNorm"
-            android:text="@string/sixText"
+            android:onClick="btn_6"
 
-            app:layout_constraintTop_toBottomOf="@id/button_9"
+            android:text="@string/sixText"
             app:layout_constraintBottom_toTopOf="@id/button_3"
             app:layout_constraintEnd_toStartOf="@id/button_minus"
             app:layout_constraintStart_toEndOf="@id/button_5"
-            />
+            app:layout_constraintTop_toBottomOf="@id/button_9" />
 
         <Button
             android:id="@+id/button_minus"
             style="@style/port_buttonOp"
-            android:text="@string/subtractText"
+            android:onClick="btn_subtract"
 
-            app:layout_constraintTop_toBottomOf="@id/button_multiply"
+            android:text="@string/subtractText"
             app:layout_constraintBottom_toTopOf="@id/button_add"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/button_6"
-            />
+            app:layout_constraintTop_toBottomOf="@id/button_multiply" />
 
         <Button
             android:id="@+id/button_1"
             style="@style/port_buttonNorm"
-            android:text="@string/oneText"
+            android:onClick="btn_1"
 
-            app:layout_constraintTop_toBottomOf="@id/button_4"
+            android:text="@string/oneText"
             app:layout_constraintBottom_toTopOf="@id/button_sign"
             app:layout_constraintEnd_toStartOf="@id/button_2"
             app:layout_constraintStart_toStartOf="parent"
-            />
+            app:layout_constraintTop_toBottomOf="@id/button_4" />
 
         <Button
             android:id="@+id/button_2"
             style="@style/port_buttonNorm"
-            android:text="@string/twoText"
+            android:onClick="btn_2"
 
-            app:layout_constraintTop_toBottomOf="@id/button_5"
+            android:text="@string/twoText"
             app:layout_constraintBottom_toTopOf="@id/button_0"
             app:layout_constraintEnd_toStartOf="@id/button_3"
             app:layout_constraintStart_toEndOf="@id/button_1"
-            />
+            app:layout_constraintTop_toBottomOf="@id/button_5" />
 
         <Button
             android:id="@+id/button_3"
             style="@style/port_buttonNorm"
-            android:text="@string/threeText"
+            android:onClick="btn_3"
 
-            app:layout_constraintTop_toBottomOf="@id/button_6"
+            android:text="@string/threeText"
             app:layout_constraintBottom_toTopOf="@id/button_decimal"
             app:layout_constraintEnd_toStartOf="@id/button_add"
             app:layout_constraintStart_toEndOf="@id/button_2"
-            />
+            app:layout_constraintTop_toBottomOf="@id/button_6" />
 
         <Button
             android:id="@+id/button_add"
             style="@style/port_buttonOp"
-            android:text="@string/additionText"
+            android:onClick="btn_add"
 
-            app:layout_constraintTop_toBottomOf="@id/button_minus"
+            android:text="@string/additionText"
             app:layout_constraintBottom_toTopOf="@id/button_equals"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/button_3"
-            />
+            app:layout_constraintTop_toBottomOf="@id/button_minus" />
 
         <Button
             android:id="@+id/button_sign"
             style="@style/port_buttonNorm"
-            android:text="@string/signText"
+            android:onClick="btn_sign"
 
-            app:layout_constraintTop_toBottomOf="@id/button_1"
+            android:text="@string/signText"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/button_0"
             app:layout_constraintStart_toStartOf="parent"
-            />
+            app:layout_constraintTop_toBottomOf="@id/button_1" />
 
         <Button
             android:id="@+id/button_0"
             style="@style/port_buttonNorm"
-            android:text="@string/zeroText"
+            android:onClick="btn_0"
 
-            app:layout_constraintTop_toBottomOf="@id/button_2"
+            android:text="@string/zeroText"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/button_decimal"
             app:layout_constraintStart_toEndOf="@id/button_sign"
+            app:layout_constraintTop_toBottomOf="@id/button_2"
             tools:ignore="DuplicateSpeakableTextCheck" />
 
         <Button
             android:id="@+id/button_decimal"
             style="@style/port_buttonNorm"
-            android:text="@string/decimalText"
+            android:onClick="btn_dot"
 
-            app:layout_constraintTop_toBottomOf="@id/button_3"
+            android:text="@string/decimalText"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/button_equals"
             app:layout_constraintStart_toEndOf="@id/button_0"
-            />
+            app:layout_constraintTop_toBottomOf="@id/button_3" />
 
         <Button
             android:id="@+id/button_equals"
             style="@style/port_buttonFunc"
-            android:text="@string/equalsText"
+            android:onClick="btn_equals"
 
-            app:layout_constraintTop_toBottomOf="@id/button_add"
+            android:text="@string/equalsText"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/button_decimal"
-            />
+            app:layout_constraintTop_toBottomOf="@id/button_add" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

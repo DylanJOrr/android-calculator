@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Lab 1 - Android Calculator</string>
+    <string name="errorText">Error</string>
+
     <string name="oneText">1</string>
     <string name="twoText">2</string>
     <string name="threeText">3</string>
