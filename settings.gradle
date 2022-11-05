@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "SEGLab1_AndroidCalculator"
+rootProject.name = "AndroidCalculator"
 include ':app'
