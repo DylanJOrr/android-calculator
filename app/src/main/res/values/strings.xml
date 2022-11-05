@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Lab 1 - Android Calculator</string>
+    <string name="app_name">Calculator</string>
     <string name="errorText">Error</string>
 
     <string name="oneText">1</string>
@@ -25,8 +25,7 @@
     <string name="signText">+/-</string>
 
     <string name="modeRadText">Rad</string>
-    <string name="modeDecText">Dec</string>
-    <string name="modeSwapText">sync_alt</string>
+    <string name="modeDegText">Deg</string>
 
     <string name="SinText">sin</string>
     <string name="CosText">cos</string>
@@ -41,11 +40,26 @@
     <string name="HyperArcCosText">cosh<sup><small>-1</small></sup></string>
     <string name="HyperArcTanText">tanh<sup><small>-1</small></sup></string>
 
+    <string name="SinText_Func">sin</string>
+    <string name="CosText_Func">cos</string>
+    <string name="TanText_Func">tan</string>
+    <string name="ArcSinText_Func">asin</string>
+    <string name="ArcCosText_Func">acos</string>
+    <string name="ArcTanText_Func">atan</string>
+    <string name="HyperSinText_Func">sinh</string>
+    <string name="HyperCosText_Func">cosh</string>
+    <string name="HyperTanText_Func">tanh</string>
+    <string name="HyperArcSinText_Func">asinh</string>
+    <string name="HyperArcCosText_Func">acosh</string>
+    <string name="HyperArcTanText_Func">atanh</string>
+
     <string name="naturalLogText">ln</string>
-    <string name="LogText">log</string>
+    <string name="logText">log</string>
     <string name="squareRootText">√</string>
-    <string name="cubeRootText"><sup><small>3</small></sup>√</string>
-    <string name="fractionText">1/x</string>
+    <string name="cubeRootText">cbrt</string>
+    <string name="cubeRootText_Symbol"><sup><small>3</small></sup>√</string>
+    <string name="invertText">1÷</string>
+    <string name="invertText_Symbol">1/x</string>
     <string name="absoluteValueText">|x|</string>
     <string name="piText">π</string>
     <string name="eText">e</string>
@@ -55,7 +69,6 @@
     <string name="xPowerYText">x<sup><small>y</small></sup></string>
     <string name="twoPowerXText">2<sup><small>x</small></sup></string>
     <string name="xFactorialText">x!</string>
-
 
     <string name="backspaceButtonText">Backspace</string>
     <string name="modeSwapButtonText">Mode Swap</string>

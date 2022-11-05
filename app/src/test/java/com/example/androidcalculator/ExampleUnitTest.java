@@ -1,4 +1,4 @@
-package com.example.seglab1_androidcalculator;
+package com.example.androidcalculator;
 
 import org.junit.Test;
 

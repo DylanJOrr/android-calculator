@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
 
         android:layout_margin="8dp"
+        android:paddingTop="16dp"
         app:layout_constraintBottom_toTopOf="@id/buttons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,6 +61,7 @@
             app:autoSizeTextType="uniform"
 
             app:layout_constraintBaseline_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/current_number"
             app:layout_constraintTop_toBottomOf="@+id/current_number" />
@@ -93,7 +95,6 @@
             android:contentDescription="@string/backspaceButtonText"
             android:background="@drawable/imagebutton_roundedcorners"
             android:src="@drawable/ic_baseline_backspace_24"
-            android:onClick="btn_backspace"
 
             app:layout_constraintBottom_toTopOf="@id/button_divide"
             app:layout_constraintEnd_toEndOf="@id/button_divide"
@@ -103,55 +104,49 @@
         <Button
             android:id="@+id/button_clear"
             style="@style/port_buttonFunc"
-            android:onClick="btn_clear"
 
 
             android:text="@string/clearText"
             app:layout_constraintBottom_toTopOf="@id/button_7"
             app:layout_constraintEnd_toStartOf="@id/button_bracket"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_backspace" />
+            app:layout_constraintTop_toBottomOf="@id/button_backspace" />
 
         <Button
             android:id="@+id/button_bracket"
             style="@style/port_buttonNorm"
-            android:onClick="btn_brackets"
 
             android:text="@string/parenthesesText"
             app:layout_constraintBottom_toTopOf="@id/button_8"
             app:layout_constraintEnd_toStartOf="@id/button_percent"
             app:layout_constraintStart_toEndOf="@id/button_clear"
-            app:layout_constraintTop_toBottomOf="@+id/button_backspace" />
+            app:layout_constraintTop_toBottomOf="@id/button_backspace" />
 
         <Button
-            android:id="@+id/button_percent"
             style="@style/port_buttonNorm"
-            android:onClick="btn_percent"
-
+            android:id="@+id/button_percent"
             android:text="@string/percentText"
+
             app:layout_constraintBottom_toTopOf="@id/button_9"
             app:layout_constraintEnd_toStartOf="@id/button_divide"
             app:layout_constraintStart_toEndOf="@id/button_bracket"
             app:layout_constraintTop_toBottomOf="@id/button_backspace" />
 
         <Button
-            android:id="@+id/button_divide"
             style="@style/port_buttonOp"
-            android:onClick="btn_divide"
-
-
+            android:id="@+id/button_divide"
             android:text="@string/divideText"
+
             app:layout_constraintBottom_toTopOf="@id/button_multiply"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/button_percent"
             app:layout_constraintTop_toBottomOf="@id/button_backspace" />
 
         <Button
-            android:id="@+id/button_7"
             style="@style/port_buttonNorm"
-            android:onClick="btn_7"
-
+            android:id="@+id/button_7"
             android:text="@string/sevenText"
+
             app:layout_constraintBottom_toTopOf="@id/button_4"
             app:layout_constraintEnd_toStartOf="@id/button_8"
             app:layout_constraintStart_toStartOf="parent"
@@ -161,9 +156,8 @@
         <Button
             android:id="@+id/button_8"
             style="@style/port_buttonNorm"
-            android:onClick="btn_8"
-
             android:text="@string/eightText"
+
 
             app:layout_constraintBottom_toTopOf="@id/button_5"
             app:layout_constraintEnd_toStartOf="@id/button_9"
@@ -173,10 +167,8 @@
         <Button
             android:id="@+id/button_9"
             style="@style/port_buttonNorm"
-            android:onClick="btn_9"
-
-
             android:text="@string/nineText"
+
             app:layout_constraintBottom_toTopOf="@id/button_6"
             app:layout_constraintEnd_toStartOf="@id/button_multiply"
             app:layout_constraintStart_toEndOf="@id/button_8"
@@ -185,7 +177,6 @@
         <Button
             android:id="@+id/button_multiply"
             style="@style/port_buttonOp"
-            android:onClick="btn_multiply"
 
             android:text="@string/multiplyText"
             app:layout_constraintBottom_toTopOf="@id/button_minus"
@@ -196,7 +187,6 @@
         <Button
             android:id="@+id/button_4"
             style="@style/port_buttonNorm"
-            android:onClick="btn_4"
 
             android:text="@string/fourText"
             app:layout_constraintBottom_toTopOf="@id/button_1"
@@ -207,7 +197,6 @@
         <Button
             android:id="@+id/button_5"
             style="@style/port_buttonNorm"
-            android:onClick="btn_5"
 
             android:text="@string/fiveText"
             app:layout_constraintBottom_toTopOf="@id/button_2"
@@ -218,7 +207,6 @@
         <Button
             android:id="@+id/button_6"
             style="@style/port_buttonNorm"
-            android:onClick="btn_6"
 
             android:text="@string/sixText"
             app:layout_constraintBottom_toTopOf="@id/button_3"
@@ -229,7 +217,6 @@
         <Button
             android:id="@+id/button_minus"
             style="@style/port_buttonOp"
-            android:onClick="btn_subtract"
 
             android:text="@string/subtractText"
             app:layout_constraintBottom_toTopOf="@id/button_add"
@@ -240,7 +227,6 @@
         <Button
             android:id="@+id/button_1"
             style="@style/port_buttonNorm"
-            android:onClick="btn_1"
 
             android:text="@string/oneText"
             app:layout_constraintBottom_toTopOf="@id/button_sign"
@@ -251,7 +237,6 @@
         <Button
             android:id="@+id/button_2"
             style="@style/port_buttonNorm"
-            android:onClick="btn_2"
 
             android:text="@string/twoText"
             app:layout_constraintBottom_toTopOf="@id/button_0"
@@ -262,7 +247,6 @@
         <Button
             android:id="@+id/button_3"
             style="@style/port_buttonNorm"
-            android:onClick="btn_3"
 
             android:text="@string/threeText"
             app:layout_constraintBottom_toTopOf="@id/button_decimal"
@@ -273,7 +257,6 @@
         <Button
             android:id="@+id/button_add"
             style="@style/port_buttonOp"
-            android:onClick="btn_add"
 
             android:text="@string/additionText"
             app:layout_constraintBottom_toTopOf="@id/button_equals"
@@ -284,7 +267,6 @@
         <Button
             android:id="@+id/button_sign"
             style="@style/port_buttonNorm"
-            android:onClick="btn_sign"
 
             android:text="@string/signText"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -295,7 +277,6 @@
         <Button
             android:id="@+id/button_0"
             style="@style/port_buttonNorm"
-            android:onClick="btn_0"
 
             android:text="@string/zeroText"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -307,7 +288,6 @@
         <Button
             android:id="@+id/button_decimal"
             style="@style/port_buttonNorm"
-            android:onClick="btn_dot"
 
             android:text="@string/decimalText"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -318,7 +298,6 @@
         <Button
             android:id="@+id/button_equals"
             style="@style/port_buttonFunc"
-            android:onClick="btn_equals"
 
             android:text="@string/equalsText"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -329,7 +308,154 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <ImageButton
+        android:id="@+id/button_swap"
+        style="@style/noButton"
+        android:contentDescription="@string/backspaceButtonText"
+        tools:ignore="MissingConstraints" />
 
+    <Button
+        android:id="@+id/button_Mode_Rad"
+        style="@style/noButton"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_Mode_Dec"
+        style="@style/noButton"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_squareRoot"
+        style="@style/noButton"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_cubeRoot"
+        style="@style/noButton"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_sin"
+        style="@style/noButton"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_inverseSin"
+        style="@style/noButton"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_hyperSin"
+        style="@style/noButton"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_inverseHyperSin"
+        style="@style/noButton"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_cos"
+        style="@style/noButton"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_inverseCos"
+        style="@style/noButton"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_hyperCos"
+        style="@style/noButton"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_inverseHyperCos"
+        style="@style/noButton"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+    android:id="@+id/button_tan"
+    style="@style/noButton"
+    tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_inverseTan"
+        style="@style/noButton"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_hyperTan"
+        style="@style/noButton"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_inverseHyperTan"
+        style="@style/noButton"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_naturalLog"
+        style="@style/noButton"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_log"
+        style="@style/noButton"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_invert"
+        style="@style/noButton"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_XPowerY"
+        style="@style/noButton"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_2PowerX"
+        style="@style/noButton"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_squared"
+        style="@style/noButton"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_cubed"
+        style="@style/noButton"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_e"
+        style="@style/noButton"
+        tools:ignore="MissingConstraints" />
+
+
+    <Button
+        android:id="@+id/button_pi"
+        style="@style/noButton"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_eExponent"
+        style="@style/noButton"
+        tools:ignore="MissingConstraints" />
+
+
+    <Button
+        android:id="@+id/button_factorial"
+        style="@style/noButton"
+        tools:ignore="MissingConstraints" />
+
+
+    <Button
+        android:id="@+id/button_absoluteValue"
+        style="@style/noButton"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

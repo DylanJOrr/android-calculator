@@ -7,53 +7,66 @@
     tools:context=".MainActivity"
     >
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/numbers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="16dp"
+        android:background="@drawable/numbers_bottom_border"
+        android:layout_margin="8dp"
+        android:paddingBottom="12dp"
 
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/buttons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/buttons"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            style="@style/calcInfo"
             android:id="@+id/previous_calculation"
+            style="@style/calcInfo"
+            android:layout_height="48dp"
             android:layout_width="wrap_content"
+            android:textAlignment="textStart"
             android:text="@string/previousCalculationText"
+
+            app:autoSizeMaxTextSize="32sp"
+            app:autoSizeMinTextSize="16sp"
+            app:autoSizeStepGranularity="1sp"
+            app:autoSizeTextType="uniform"
 
             app:layout_constraintBottom_toBottomOf="@id/current_number"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/current_number"
+            app:layout_constraintEnd_toStartOf="@id/current_number"
             />
 
         <TextView
-            style="@style/calcInfo"
             android:id="@+id/current_number"
+            style="@style/calcInfo"
+            android:layout_height="72dp"
             android:text="@string/currentNumberText"
-            android:textSize="64sp"
 
-            app:layout_constraintBottom_toTopOf="@id/current_calculation"
+            app:autoSizeMaxTextSize="64sp"
+            app:autoSizeMinTextSize="32sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/previous_calculation"
-            app:layout_constraintTop_toTopOf="parent"
-
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            style="@style/calcInfo"
             android:id="@+id/current_calculation"
+            style="@style/calcInfo"
             android:text="@string/currentCalculationText"
 
-            app:layout_constraintTop_toBottomOf="@+id/current_number"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:autoSizeMaxTextSize="32sp"
+            app:autoSizeMinTextSize="16sp"
+            app:autoSizeStepGranularity="1sp"
+            app:autoSizeTextType="uniform"
+
             app:layout_constraintEnd_toEndOf="parent"
-            />
+            app:layout_constraintStart_toStartOf="@id/current_number"
+            app:layout_constraintTop_toBottomOf="@id/current_number" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -61,37 +74,38 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:background="@drawable/buttons_top_border"
-        android:paddingTop="8dp"
 
-        app:layout_constraintTop_toBottomOf="@id/numbers"
         app:layout_constraintBottom_toBottomOf="parent"
-        >
-        <androidx.constraintlayout.widget.ConstraintLayout
-            style="@style/tableRow"
-            android:id="@+id/row1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/numbers">
 
-            app:layout_constraintTop_toTopOf="parent"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/row1"
+            style="@style/tableRow"
+
             app:layout_constraintBottom_toTopOf="@id/row2"
-            tools:ignore="MissingConstraints">
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints"
+            >
 
             <ImageButton
                 android:id="@+id/button_swap"
                 style="@style/land_buttonFunc"
                 android:background="@drawable/imagebutton_roundedcorners"
                 android:contentDescription="@string/modeSwapButtonText"
-                android:onClick="btn_swap"
 
                 android:src="@drawable/ic_baseline_sync_alt_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_Mode_Rad"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <Button
                 android:id="@+id/button_Mode_Rad"
                 style="@style/land_buttonFunc"
-                android:onClick="btn_rad"
+                android:visibility="gone"
 
                 android:text="@string/modeRadText"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -102,31 +116,29 @@
             <Button
                 android:id="@+id/button_Mode_Dec"
                 style="@style/land_buttonFunc"
-                android:onClick="btn_dec"
-                android:text="@string/modeDecText"
+                android:text="@string/modeDegText"
 
-                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_squareRoot"
                 app:layout_constraintStart_toEndOf="@id/button_Mode_Rad"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <Button
                 android:id="@+id/button_squareRoot"
                 style="@style/land_buttonFunc"
-                android:onClick="btn_sqrt"
 
                 android:text="@string/squareRootText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_cubeRoot"
                 app:layout_constraintStart_toEndOf="@id/button_Mode_Dec"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <Button
                 android:id="@+id/button_cubeRoot"
                 style="@style/land_buttonFunc"
-                android:onClick="btn_cbrt"
-                android:text="@string/cubeRootText"
+                android:text="@string/cubeRootText_Symbol"
 
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -137,71 +149,70 @@
             <Button
                 android:id="@+id/button_clear"
                 style="@style/land_buttonFunc"
-                android:onClick="btn_clear"
 
                 android:text="@string/clearText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_bracket"
                 app:layout_constraintStart_toEndOf="@id/button_cubeRoot"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <Button
-                style="@style/land_buttonNorm"
                 android:id="@+id/button_bracket"
+                style="@style/land_buttonNorm"
                 android:text="@string/parenthesesText"
 
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/button_clear"
                 app:layout_constraintEnd_toStartOf="@id/button_percent"
-                />
+                app:layout_constraintStart_toEndOf="@id/button_clear"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
             <Button
-                style="@style/land_buttonNorm"
                 android:id="@+id/button_percent"
+                style="@style/land_buttonNorm"
                 android:text="@string/percentText"
 
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/button_bracket"
                 app:layout_constraintEnd_toStartOf="@id/button_divide"
-                />
+                app:layout_constraintStart_toEndOf="@id/button_bracket"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
             <Button
                 android:id="@+id/button_divide"
                 style="@style/land_buttonOp"
-                android:onClick="btn_divide"
 
                 android:text="@string/divideText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/button_percent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <androidx.constraintlayout.widget.ConstraintLayout
-            style="@style/tableRow"
             android:id="@+id/row2"
+            style="@style/tableRow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            app:layout_constraintTop_toBottomOf="@id/row1"
             app:layout_constraintBottom_toTopOf="@id/row3"
-            >
+            app:layout_constraintTop_toBottomOf="@id/row1">
 
             <Button
                 android:id="@+id/button_sin"
                 style="@style/land_buttonFunc"
-                android:onClick="btn_sin"
                 android:text="@string/SinText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_inverseSin"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <Button
                 android:id="@+id/button_inverseSin"
                 style="@style/land_buttonFunc"
-                android:onClick="btn_arcSin"
                 android:text="@string/ArcSinText"
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -213,17 +224,16 @@
                 android:id="@+id/button_cos"
                 style="@style/land_buttonFunc"
                 android:layout_marginStart="53dp"
-                android:onClick="btn_cos"
                 android:text="@string/CosText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_inverseCos"
                 app:layout_constraintStart_toEndOf="@id/button_inverseSin"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <Button
                 android:id="@+id/button_inverseCos"
                 style="@style/land_buttonFunc"
-                android:onClick="btn_arcCos"
                 android:text="@string/ArcCosText"
 
                 android:visibility="gone"
@@ -235,17 +245,16 @@
             <Button
                 android:id="@+id/button_tan"
                 style="@style/land_buttonFunc"
-                android:onClick="btn_tan"
                 android:text="@string/TanText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_inverseTan"
                 app:layout_constraintStart_toEndOf="@id/button_inverseCos"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <Button
                 android:id="@+id/button_inverseTan"
                 style="@style/land_buttonFunc"
-                android:onClick="btn_arcTan"
                 android:text="@string/ArcTanText"
 
                 android:visibility="gone"
@@ -257,67 +266,67 @@
             <Button
                 android:id="@+id/button_7"
                 style="@style/land_buttonNorm"
-                android:onClick="btn_7"
                 android:text="@string/sevenText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_8"
                 app:layout_constraintStart_toEndOf="@id/button_inverseTan"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
             <Button
                 android:id="@+id/button_8"
                 style="@style/land_buttonNorm"
-                android:onClick="btn_8"
                 android:text="@string/eightText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_9"
                 app:layout_constraintStart_toEndOf="@id/button_7"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
             <Button
                 android:id="@+id/button_9"
                 style="@style/land_buttonNorm"
-                android:onClick="btn_9"
                 android:text="@string/nineText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_multiply"
                 app:layout_constraintStart_toEndOf="@id/button_8"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
             <Button
                 android:id="@+id/button_multiply"
                 style="@style/land_buttonOp"
-                android:onClick="btn_multiply"
 
                 android:text="@string/multiplyText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/button_9"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-        <androidx.constraintlayout.widget.ConstraintLayout
-            style="@style/tableRow"
-            android:id="@+id/row3"
 
-            app:layout_constraintTop_toBottomOf="@id/row2"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/row3"
+            style="@style/tableRow"
+
             app:layout_constraintBottom_toTopOf="@id/row4"
+            app:layout_constraintTop_toBottomOf="@id/row2"
             tools:ignore="MissingConstraints">
 
             <Button
                 android:id="@+id/button_naturalLog"
                 style="@style/land_buttonFunc"
-                android:onClick="btn_ln"
 
                 android:text="@string/naturalLogText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_hyperSin"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <Button
                 android:id="@+id/button_hyperSin"
                 style="@style/land_buttonFunc"
-                android:onClick="btn_hyperSin"
                 android:text="@string/HyperSinText"
 
                 android:visibility="gone"
@@ -329,19 +338,18 @@
             <Button
                 android:id="@+id/button_log"
                 style="@style/land_buttonFunc"
-                android:onClick="btn_log"
 
-                android:text="@string/LogText"
+                android:text="@string/logText"
                 app:layout_constraintBottom_toBottomOf="parent"
 
                 app:layout_constraintEnd_toStartOf="@id/button_hyperCos"
                 app:layout_constraintStart_toEndOf="@id/button_hyperSin"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <Button
                 android:id="@+id/button_hyperCos"
                 style="@style/land_buttonFunc"
-                android:onClick="btn_hyperCos"
                 android:text="@string/HyperCosText"
 
                 android:visibility="gone"
@@ -353,18 +361,17 @@
             <Button
                 android:id="@+id/button_invert"
                 style="@style/land_buttonFunc"
-                android:onClick="btn_invert"
+                android:text="@string/invertText_Symbol"
 
-                android:text="@string/fractionText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_hyperTan"
                 app:layout_constraintStart_toEndOf="@id/button_hyperCos"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <Button
                 android:id="@+id/button_hyperTan"
                 style="@style/land_buttonFunc"
-                android:onClick="btn_hyperTan"
                 android:text="@string/HyperTanText"
 
                 android:visibility="gone"
@@ -376,71 +383,71 @@
             <Button
                 android:id="@+id/button_4"
                 style="@style/land_buttonNorm"
-                android:onClick="btn_4"
 
                 android:text="@string/fourText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_5"
                 app:layout_constraintStart_toEndOf="@id/button_hyperTan"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
             <Button
                 android:id="@+id/button_5"
                 style="@style/land_buttonNorm"
-                android:onClick="btn_5"
 
                 android:text="@string/fiveText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_6"
                 app:layout_constraintStart_toEndOf="@id/button_4"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
             <Button
                 android:id="@+id/button_6"
                 style="@style/land_buttonNorm"
-                android:onClick="btn_6"
 
                 android:text="@string/sixText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_minus"
                 app:layout_constraintStart_toEndOf="@id/button_5"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
             <Button
                 android:id="@+id/button_minus"
                 style="@style/land_buttonOp"
-                android:onClick="btn_subtract"
 
                 android:text="@string/subtractText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/button_6"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-        <androidx.constraintlayout.widget.ConstraintLayout
-            style="@style/tableRow"
-            android:id="@+id/row4"
 
-            app:layout_constraintTop_toBottomOf="@id/row3"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/row4"
+            style="@style/tableRow"
+
             app:layout_constraintBottom_toTopOf="@id/row5"
+            app:layout_constraintTop_toBottomOf="@id/row3"
             tools:ignore="MissingConstraints">
 
             <Button
                 android:id="@+id/button_squared"
                 style="@style/land_buttonFunc"
-                android:onClick="btn_squared"
 
                 android:text="@string/xSquaredText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_inverseHyperSin"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <Button
                 android:id="@+id/button_inverseHyperSin"
                 style="@style/land_buttonFunc"
-                android:onClick="btn_arcHyperSin"
                 android:text="@string/HyperArcSinText"
 
                 android:visibility="gone"
@@ -452,18 +459,17 @@
             <Button
                 android:id="@+id/button_XPowerY"
                 style="@style/land_buttonFunc"
-                android:onClick="btn_XpowerY"
 
                 android:text="@string/xPowerYText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_inverseHyperCos"
                 app:layout_constraintStart_toEndOf="@id/button_inverseHyperSin"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <Button
                 android:id="@+id/button_inverseHyperCos"
                 style="@style/land_buttonFunc"
-                android:onClick="btn_arcHyperCos"
                 android:text="@string/HyperArcCosText"
 
                 android:visibility="gone"
@@ -475,18 +481,17 @@
             <Button
                 android:id="@+id/button_eExponent"
                 style="@style/land_buttonFunc"
-                android:onClick="btn_ePowerX"
 
                 android:text="@string/ePowerXText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_inverseHyperTan"
                 app:layout_constraintStart_toEndOf="@id/button_inverseHyperCos"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <Button
                 android:id="@+id/button_inverseHyperTan"
                 style="@style/land_buttonFunc"
-                android:onClick="btn_arcHyperTan"
                 android:text="@string/HyperArcTanText"
 
                 android:visibility="gone"
@@ -498,75 +503,74 @@
             <Button
                 android:id="@+id/button_1"
                 style="@style/land_buttonNorm"
-                android:onClick="btn_1"
 
                 android:text="@string/oneText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_2"
                 app:layout_constraintStart_toEndOf="@id/button_inverseHyperTan"
 
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
             <Button
                 android:id="@+id/button_2"
                 style="@style/land_buttonNorm"
-                android:onClick="btn_2"
-
                 android:text="@string/twoText"
+
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_3"
                 app:layout_constraintStart_toEndOf="@id/button_1"
 
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck,TextContrastCheck" />
 
             <Button
                 android:id="@+id/button_3"
                 style="@style/land_buttonNorm"
-                android:onClick="btn_3"
-
                 android:text="@string/threeText"
+
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_add"
                 app:layout_constraintStart_toEndOf="@id/button_2"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
             <Button
                 android:id="@+id/button_add"
                 style="@style/land_buttonOp"
-
-                android:onClick="btn_add"
-
                 android:text="@string/additionText"
+
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/button_3"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-        <androidx.constraintlayout.widget.ConstraintLayout
-            style="@style/tableRow"
-            android:id="@+id/row5"
 
-            app:layout_constraintTop_toBottomOf="@id/row4"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/row5"
+            style="@style/tableRow"
+
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/row4"
 
             tools:ignore="MissingConstraints">
 
             <Button
                 android:id="@+id/button_absoluteValue"
                 style="@style/land_buttonFunc"
-                android:onClick="btn_abs"
 
                 android:text="@string/absoluteValueText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_2PowerX"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <Button
                 android:id="@+id/button_2PowerX"
                 style="@style/land_buttonFunc"
-                android:onClick="btn_2powerX"
                 android:text="@string/twoPowerXText"
 
                 android:visibility="gone"
@@ -578,19 +582,18 @@
             <Button
                 android:id="@+id/button_pi"
                 style="@style/land_buttonFunc"
-                android:onClick="btn_pi"
 
                 android:text="@string/piText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_cubed"
                 app:layout_constraintStart_toEndOf="@id/button_2PowerX"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck" />
 
 
             <Button
                 android:id="@+id/button_cubed"
                 style="@style/land_buttonFunc"
-                android:onClick="btn_cubed"
                 android:text="@string/xCubedText"
 
                 android:visibility="gone"
@@ -602,18 +605,17 @@
             <Button
                 android:id="@+id/button_e"
                 style="@style/land_buttonFunc"
-                android:onClick="btn_e"
 
                 android:text="@string/eText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_factorial"
                 app:layout_constraintStart_toEndOf="@id/button_cubed"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <Button
                 android:id="@+id/button_factorial"
                 style="@style/land_buttonFunc"
-                android:onClick="btn_factorial"
                 android:text="@string/xFactorialText"
 
                 android:visibility="gone"
@@ -625,49 +627,53 @@
             <Button
                 android:id="@+id/button_sign"
                 style="@style/land_buttonNorm"
-                android:onClick="btn_sign"
 
                 android:text="@string/signText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_0"
                 app:layout_constraintStart_toEndOf="@id/button_factorial"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
             <Button
                 android:id="@+id/button_0"
                 style="@style/land_buttonNorm"
-                android:onClick="btn_0"
 
                 android:text="@string/zeroText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_decimal"
                 app:layout_constraintStart_toEndOf="@id/button_sign"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="DuplicateSpeakableTextCheck" />
+                tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck,TextContrastCheck" />
 
             <Button
                 android:id="@+id/button_decimal"
                 style="@style/land_buttonNorm"
-                android:onClick="btn_dot"
 
                 android:text="@string/decimalText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_equals"
                 app:layout_constraintStart_toEndOf="@id/button_0"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
             <Button
                 android:id="@+id/button_equals"
                 style="@style/land_buttonOp"
-                android:onClick="btn_equals"
 
                 android:text="@string/equalsText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/button_decimal"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <ImageButton
+        android:id="@+id/button_backspace"
+        style="@style/noButton"
+        android:contentDescription="@string/backspaceButtonText"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
