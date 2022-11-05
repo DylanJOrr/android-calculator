@@ -56,8 +56,7 @@
     <string name="naturalLogText">ln</string>
     <string name="logText">log</string>
     <string name="squareRootText">√</string>
-    <string name="cubeRootText">cbrt</string>
-    <string name="cubeRootText_Symbol"><sup><small>3</small></sup>√</string>
+    <string name="cubeRootText">∛</string>
     <string name="invertText">1÷</string>
     <string name="invertText_Symbol">1/x</string>
     <string name="absoluteValueText">|x|</string>

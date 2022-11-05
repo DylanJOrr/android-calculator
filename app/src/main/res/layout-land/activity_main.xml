@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/numbers_bottom_border"
-        android:layout_margin="8dp"
+        android:layout_marginHorizontal="24dp"
         android:paddingBottom="12dp"
 
         app:layout_constraintBottom_toTopOf="@id/buttons"
@@ -127,8 +127,9 @@
             <Button
                 android:id="@+id/button_squareRoot"
                 style="@style/land_buttonFunc"
-
+                android:textSize="28sp"
                 android:text="@string/squareRootText"
+
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_cubeRoot"
                 app:layout_constraintStart_toEndOf="@id/button_Mode_Dec"
@@ -138,9 +139,10 @@
             <Button
                 android:id="@+id/button_cubeRoot"
                 style="@style/land_buttonFunc"
-                android:text="@string/cubeRootText_Symbol"
-
+                android:text="@string/cubeRootText"
+                android:textSize="28sp"
                 android:visibility="gone"
+
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_clear"
                 app:layout_constraintStart_toEndOf="@id/button_squareRoot"
@@ -449,6 +451,7 @@
                 android:id="@+id/button_inverseHyperSin"
                 style="@style/land_buttonFunc"
                 android:text="@string/HyperArcSinText"
+                android:textSize="20sp"
 
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -471,6 +474,7 @@
                 android:id="@+id/button_inverseHyperCos"
                 style="@style/land_buttonFunc"
                 android:text="@string/HyperArcCosText"
+                android:textSize="20sp"
 
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -493,6 +497,7 @@
                 android:id="@+id/button_inverseHyperTan"
                 style="@style/land_buttonFunc"
                 android:text="@string/HyperArcTanText"
+                android:textSize="20sp"
 
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
