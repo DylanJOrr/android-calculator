@@ -225,10 +225,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             return;
                     }
                 }
-            case "π":
-            case "e":
-                if (!str.endsWith("("))
-                    text = multiply+text;
+            case "0":
+            case "1":
+            case "2":
+            case "3":
+            case "4":
+            case "5":
+            case "6":
+            case "7":
+            case "8":
+            case "9":
+                switch (str.charAt(str.length() - 1)) {
+                    case '(':
+                    case 'π':
+                    case 'e':
+                        text = multiply+text;
+                        break;
+                }
                 break;
             case "^":
                 int ascii = str.charAt(str.length()-1);
