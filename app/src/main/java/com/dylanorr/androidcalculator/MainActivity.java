@@ -1,4 +1,4 @@
-package com.example.androidcalculator;
+package com.dylanorr.androidcalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.widget.TextViewCompat;
@@ -236,7 +236,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case "8":
             case "9":
                 switch (str.charAt(str.length() - 1)) {
-                    case '(':
+                    case ')':
                     case 'π':
                     case 'e':
                         text = multiply+text;
@@ -260,8 +260,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String str = currNum.getText().toString();
         if (str.equals(defaultNum) || str.endsWith("("))
             addText(text);
-        else
+        else {
+            switch (str.charAt(str.length() - 1)) {
+                case '+':
+                case '-':
+                case '*':
+                case '×':
+                case '/':
+                case '÷':
+                    str = str.substring(0, str.length() - 1);
+                    addText(text);
+                    addBracket(true);
+                    return;
+            }
             addText(multiply + text);
+        }
         addBracket(true);
     }
 

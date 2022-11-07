@@ -11,11 +11,11 @@ android {
             keyPassword '123456'
         }
     }
-    namespace 'com.example.androidcalculator'
+    namespace 'com.dylanorr.androidcalculator'
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.example.androidcalculator"
+        applicationId "com.dylanorr.androidcalculator"
         minSdk 22
         targetSdk 32
         versionCode 1
